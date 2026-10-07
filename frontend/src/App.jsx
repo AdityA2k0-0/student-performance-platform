@@ -9,7 +9,10 @@ const FIELDS = [
 ];
 const DEFAULTS = { study_hours: 3, attendance: 75, previous_marks: 65, assignment_score: 70, sleep_hours: 7 };
 
-const api = (path, opts) => fetch("/api" + path, opts).then((r) => r.json());
+const API_URL = "https://student-performance-platform-8xzj.onrender.com";
+
+const api = (path, opts) =>
+  fetch(API_URL + "/api" + path, opts).then((r) => r.json());
 
 function Bars({ data, labelKey, valueKey, signed }) {
   const max = Math.max(...data.map((d) => Math.abs(d[valueKey])), 0.01);
